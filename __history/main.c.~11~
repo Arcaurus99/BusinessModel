@@ -304,7 +304,7 @@ void main()
          }
          if(validar_clave())                 //Validación clave
          {
-            pasos_derecha(80);
+            pasos_derecha();
             
             LCD_PUTC("\f"); //Se borra LCD
                LCD_GOTOXY(1,1);//Se ubica en la posición 1,1

@@ -21,10 +21,6 @@ int8 MIL,CEN,DEC,UNI,VAL;
 int16 contra=9999;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
 
-void pasos_izquierda(int velocidad);
-void pasos_derecha(int velocidad);
-void pasos_off(void);
-
 void teclado()
 {
    k=kbd_getc();                 //Llamar la función del teclado y almacenar
@@ -185,68 +181,6 @@ void cambio_clave(void)
    }
 }
 
-void pasos_izquierda(int velocidad)
-{
-   output_low(bobina_1);
-   output_low(bobina_2);
-   output_high(bobina_3);
-   output_high(bobina_4);
-   delay_ms(velocidad);
-   
-   output_low(bobina_1);
-   output_high(bobina_2);
-   output_high(bobina_3);
-   output_low(bobina_4);
-   delay_ms(velocidad);
-   
-   output_high(bobina_1);
-   output_high(bobina_2);
-   output_low(bobina_3);
-   output_low(bobina_4);
-   delay_ms(velocidad);
-   
-   output_high(bobina_1);
-   output_low(bobina_2);
-   output_low(bobina_3);
-   output_high(bobina_4);
-   delay_ms(velocidad);
-}
-
-void pasos_derecha(int velocidad)
-{
-   output_high(bobina_1);
-   output_high(bobina_2);
-   output_low(bobina_3);
-   output_low(bobina_4);
-   delay_ms(velocidad);
-   
-   output_low(bobina_1);
-   output_high(bobina_2);
-   output_high(bobina_3);
-   output_low(bobina_4);
-   delay_ms(velocidad);
-   
-   output_low(bobina_1);
-   output_low(bobina_2);
-   output_high(bobina_3);
-   output_high(bobina_4);
-   delay_ms(velocidad);
-   
-   output_high(bobina_1);
-   output_low(bobina_2);
-   output_low(bobina_3);
-   output_high(bobina_4);
-   delay_ms(velocidad);
-}
-
-void pasos_off(void)
-{
-   output_low(bobina_1);
-   output_low(bobina_2);
-   output_low(bobina_3);
-   output_low(bobina_4);
-}
-
 void main()
 {
    int16 m,c,d,u;                            //Variables Locales
@@ -261,8 +195,6 @@ void main()
    port_b_pullups(0xFF);                     //PIC 16F887
    
    sinal=READ_EEPROM(4);       //Averiguo si tengo una contraseña guardada o no
-   
-   pasos_off();
    
    if(sinal!=12)
       contra=9999;
@@ -283,8 +215,6 @@ void main()
    
    while(TRUE)
    {
-      pasos_off();
-      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -304,8 +234,6 @@ void main()
          }
          if(validar_clave())                 //Validación clave
          {
-            pasos_derecha(80);
-            
             LCD_PUTC("\f"); //Se borra LCD
                LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
             LCD_PUTC(" CLAVE CORRECTA ");

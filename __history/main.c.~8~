@@ -262,8 +262,6 @@ void main()
    
    sinal=READ_EEPROM(4);       //Averiguo si tengo una contraseña guardada o no
    
-   pasos_off();
-   
    if(sinal!=12)
       contra=9999;
    else
@@ -283,8 +281,6 @@ void main()
    
    while(TRUE)
    {
-      pasos_off();
-      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -304,8 +300,6 @@ void main()
          }
          if(validar_clave())                 //Validación clave
          {
-            pasos_derecha(80);
-            
             LCD_PUTC("\f"); //Se borra LCD
                LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
             LCD_PUTC(" CLAVE CORRECTA ");

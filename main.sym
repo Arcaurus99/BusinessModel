@@ -1,0 +1,163 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     PORTB
+006     lcd
+006     lcdlat
+006     kbd
+007     PORTC
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     kbd_getc.kbd_call_count
+022.0   kbd_getc.kbd_down
+023     kbd_getc.last_key
+024     kbd_getc.col
+025     K
+026     MIL
+027     CEN
+028     DEC
+029     UNI
+02A     VAL
+02B-02C contra
+02D     sinal
+02E-02F MAIN.m
+030-031 MAIN.c
+032-033 MAIN.d
+034-035 MAIN.u
+036     MAIN.m1
+037     MAIN.c1
+038     MAIN.d1
+039     MAIN.u1
+03A     cambio_clave.bandera
+03A     pasos_derecha.velocidad
+03A     lcd_init.i
+03A     MAIN.@SCRATCH1
+03B-03C cambio_clave.clave
+03B-03E lcd_init.LCD_INIT_STRING
+03B     MAIN.@SCRATCH2
+03D-03E cambio_clave.m
+03F-040 cambio_clave.c
+03F     lcd_init.@SCRATCH1
+041-042 cambio_clave.d
+043-044 cambio_clave.u
+045     kbd_getc.kchar
+045-046 validar_clave.clave
+045     cambio_clave.@SCRATCH1
+045     @PSTRINGC7_647.@SCRATCH1
+046     kbd_getc.row
+046     cambio_clave.@SCRATCH2
+046     @PSTRINGC7_647.@SCRATCH2
+047-048 validar_clave.m
+047     kbd_getc.@SCRATCH1
+047     @PSTRINGC7_647.@SCRATCH3
+048     lcd_putc.c
+048     @PSTRINGC7_647.@SCRATCH4
+049     @delay_ms1.P1
+049-04A validar_clave.c
+049     lcd_gotoxy.x
+04A     lcd_gotoxy.y
+04B-04C validar_clave.d
+04B     lcd_gotoxy.address
+04C     lcd_gotoxy.@SCRATCH1
+04D-04E validar_clave.u
+04D     lcd_send_byte.address
+04E     lcd_send_byte.n
+04F     lcd_read_byte.low
+04F     @MUL88.P1
+04F     lcd_send_byte.@SCRATCH1
+04F     validar_clave.@SCRATCH1
+050     lcd_read_byte.high
+050     @MUL88.P1
+050     lcd_send_nibble.n
+050     validar_clave.@SCRATCH2
+051-052 @MUL1616.P1
+051     lcd_read_byte.@SCRATCH1
+053-054 @MUL1616.P1
+055     @MUL1616.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+086     lcdtris
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  KEYS.call
+000008  KEYS.data
+000014  @const708.call
+000015  @const710.call
+00001C  @const711.call
+00001D  @const712.call
+000024  @const713.call
+000025  @const714.call
+00002E  @const715.call
+00002F  @const727.call
+000030  @const728.call
+000038  @const729.call
+000039  @const730.call
+000042  @const731.call
+000043  @const732.call
+00004C  @delay_ms1
+000061  lcd_send_nibble
+00006D  lcd_read_nibble
+000073  lcd_send_byte
+000079  lcd_read_byte
+0000B3  lcd_init
+0000F1  kbd_init
+0000F4  pasos_off
+000105  @MUL1616
+00011A  @MUL88
+00013F  lcd_gotoxy
+000151  lcd_putc
+00017D  @PSTRINGC7_647
+0001D3  kbd_getc
+000238  teclado
+000280  pedir_clave
+0002D9  validar_clave
+00032C  cambio_clave
+000481  pasos_derecha
+0004D0  MAIN
+0004D0  @cinit1
+0004E8  @cinit2
+
+Project Directory:
+    D:\arc\UNIVERSIDAD\6to Semestre\Circuitos Digitales II\BusinessModel\BusinessModel\
+
+Project Files:
+    main.c                                                  [31-mar.-21 23:42  CRC=3243AE94]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [12-nov.-13 14:35  CRC=6CB1A611]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [19-sep.-13 15:38  CRC=D1A6378A]
+    C:\Program Files (x86)\PICC\Drivers\kbd.c               [23-sep.-10 09:09  CRC=8814BCFC]
+
+Source signature=80C50627
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
