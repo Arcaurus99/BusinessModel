@@ -14,3 +14,8 @@ Type=4
 [Units]
 Count=1
 1=main (main)
+[Opened Files]
+1=main.c
+2=..\..\CCS C Compiler\Security\Security.c
+3=..\..\CCS C Compiler\motornatala\motor.c
+4=
