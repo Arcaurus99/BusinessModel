@@ -11,11 +11,11 @@ Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers
 Type=4
 [mru-list]
 1=main.c
+[Opened Files]
+1=main.c
+2=..\..\..\CCS C Compiler\motornatala\motor.c
+3=..\PIC2\main2.c
+4=
 [Units]
 Count=1
 1=main (main)
-[Opened Files]
-1=main.c
-2=..\..\CCS C Compiler\Security\Security.c
-3=..\..\CCS C Compiler\motornatala\motor.c
-4=

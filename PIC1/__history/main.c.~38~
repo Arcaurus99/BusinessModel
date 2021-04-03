@@ -1,19 +1,19 @@
 #include <16f887.h>
-//#use delay(clock=4000000)                    //Reloj 4MHz
-#use delay(clock=4000000,crystal)            //Crystal 4MHz
 #fuses xt,noprotect,nowdt,nobrownout,noput,nolvp
+#use delay(clock=4000000,crystal)            //Crystal 4MHz
+#use rs232(baud=57600,xmit=pin_c6,rcv=pin_c7,bits=8)
 #define use_portb_lcd True                   //Definiciones para colocar el LCD
 #define use_portb_kbd True                   //y el teclado en el puerto B
 #include <lcd.c>                             //Librerías del LCD y Teclado
 #include <kbd.c> 
 #byte PORTC= 7                               //Definiciones
 #byte PORTB= 6
-#define LED1 PORTC,4
-#define LED2 PORTC,7
+#define LED1 PORTC,1
+#define LED2 PORTC,4
 
 char K;                                      //Variables Globales
 int8 MIL,CEN,DEC,UNI,VAL;
-int16 contra=9999;               //Variable entera para almacenar la contraseña
+int16 contra=2021;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
 
 void teclado()
@@ -180,6 +180,8 @@ void main()
 {
    int16 m,c,d,u;                            //Variables Locales
    INT8 m1,c1,d1,u1;
+   bool flag = false;
+   int order;
    
    SET_TRIS_C(0B00000000);                   //Puerto C como Salida
    PORTC=0;                                  //Limpia Puerto C
@@ -187,8 +189,7 @@ void main()
    kbd_init();                               //Inicializa el Teclado
    
                               //Configura las Resistencias PULL-UP del Puerto B
-   port_b_pullups(0xFF);                     //PIC16F887
-   //port_b_pullups(TRUE);                     //PIC16F877A
+   port_b_pullups(0xFF);                     //PIC 16F887
    
    sinal=READ_EEPROM(4);       //Averiguo si tengo una contraseña guardada o no
    
@@ -211,6 +212,8 @@ void main()
    
    while(TRUE)
    {
+      pasos_off();
+      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -230,12 +233,18 @@ void main()
          }
          if(validar_clave())                 //Validación clave
          {
+            flag = true;
+                        
             LCD_PUTC("\f"); //Se borra LCD
-               LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
+            LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
             LCD_PUTC(" CLAVE CORRECTA ");
             BIT_SET(LED1);
-            DELAY_MS(2000);
-            BIT_CLEAR(LED1);
+            
+            while(flag == true)
+            {  
+               order = teclado;
+               putc(order);
+            }  
          }
          else
          {

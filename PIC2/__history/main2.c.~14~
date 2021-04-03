@@ -15,7 +15,7 @@ void pasos_off(void);
 
 int order;
 int direction;
-int lastdir = 0;
+int last-dir = 0;
 
 #int_RDA
 RDA_isr()
@@ -88,7 +88,7 @@ void pasos_off(void)
    output_low(bobina_3);
    output_low(bobina_4);
    
-   lastdir = direction;
+   last-dir = direction;
    direction = 0;
 }
 
@@ -102,7 +102,6 @@ void main()
    if(order == 1)
    {
       pasos_izquierda(80);
-      
    }
    
    if(order == 2)
@@ -112,26 +111,26 @@ void main()
    
    if(order == 3)
    {
-      if(direction == 1)
+      if(direction == 1);
       {
          pasos_off();
       }
       
-      if(direction == 2)
+      if(direction == 2);
       {
          pasos_off();
       }
       
-      if(direction == 0)
+      if(direction == 0);
       {
-         if(lastdir == 1)
+         if(last-dir == 1);
          {
-            pasos_izquierda(80);
+            pasos_izquierda();
          }
          
-         if(lastdir == 2)
+         if(last-dir == 2);
          {
-            pasos_derecha(80);
+            pasos_derecha();
          }
       }
    }

@@ -13,15 +13,6 @@ void pasos_izquierda(int velocidad);
 void pasos_derecha(int velocidad);
 void pasos_off(void);
 
-int order;
-int direction;
-int lastdir = 0;
-
-#int_RDA
-RDA_isr()
-{
-  order=getc();
-}
 
 void pasos_izquierda(int velocidad)
 {
@@ -48,8 +39,6 @@ void pasos_izquierda(int velocidad)
    output_low(bobina_3);
    output_high(bobina_4);
    delay_ms(velocidad);
-   
-   direction = 1;
 }
 
 void pasos_derecha(int velocidad)
@@ -77,8 +66,6 @@ void pasos_derecha(int velocidad)
    output_low(bobina_3);
    output_high(bobina_4);
    delay_ms(velocidad);
-   
-   direction = 2;
 }
 
 void pasos_off(void)
@@ -87,52 +74,22 @@ void pasos_off(void)
    output_low(bobina_2);
    output_low(bobina_3);
    output_low(bobina_4);
-   
-   lastdir = direction;
-   direction = 0;
 }
 
 void main()
 {
-   enable_interrupts(INT_RDA);
-   enable_interrupts(GLOBAL);
- 
-   pasos_off();
-   
-   if(order == 1)
+   while(true)
    {
-      pasos_izquierda(80);
+      pasos_off();
       
-   }
-   
-   if(order == 2)
-   {
-      pasos_derecha(80);
-   }
-   
-   if(order == 3)
-   {
-      if(direction == 1)
+      if(input(flag) == 1)
       {
-         pasos_off();
+         pasos_izquierda(80);
       }
       
-      if(direction == 2)
+      if(input(flag) == 2)
       {
-         pasos_off();
-      }
-      
-      if(direction == 0)
-      {
-         if(lastdir == 1)
-         {
-            pasos_izquierda(80);
-         }
-         
-         if(lastdir == 2)
-         {
-            pasos_derecha(80);
-         }
+         pasos_derecha(80);
       }
    }
 }

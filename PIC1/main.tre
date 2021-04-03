@@ -1,5 +1,5 @@
 ÀÄmain
-   ÀÄMAIN  0/277  Ram=14
+   ÀÄMAIN  0/315  Ram=16
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄlcd_init  0/62  Ram=6
       ³  ÃÄ@delay_ms1  0/21  Ram=1
@@ -14,12 +14,10 @@
       ³     ÃÄlcd_send_nibble  0/12  Ram=1
       ³     ÀÄlcd_send_nibble  0/12  Ram=1
       ÃÄkbd_init  0/3  Ram=0
-      ÃÄpasos_off  0/17  Ram=0
       ÃÄ@MUL1616  0/21  Ram=5
       ÃÄ@MUL1616  0/21  Ram=5
       ÃÄ@MUL88  0/37  Ram=2
-      ÃÄpasos_off  0/17  Ram=0
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÃÄlcd_putc  0/44  Ram=1
       ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ³  ÀÄlcd_send_byte  0/64  Ram=3
@@ -37,7 +35,7 @@
       ³     ÀÄ*
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÀÄ*
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
@@ -46,7 +44,7 @@
       ³  ÃÄteclado  0/72  Ram=0
       ³  ³  ÃÄkbd_getc  0/101  Ram=3
       ³  ³  ³  ÃÄ@MUL88  0/37  Ram=2
-      ³  ³  ³  ÀÄ@const660  0/16  Ram=0
+      ³  ³  ³  ÀÄ@const662  0/16  Ram=0
       ³  ³  ÀÄkbd_getc  0/101  Ram=3
       ³  ³     ÀÄ*
       ³  ÃÄlcd_putc  0/44  Ram=1
@@ -64,11 +62,11 @@
       ³  ÀÄlcd_putc  0/44  Ram=1
       ³     ÀÄ*
       ÃÄcambio_clave  0/341  Ram=13
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ÀÄ*
@@ -78,11 +76,11 @@
       ³  ³  ÃÄ@MUL1616  0/21  Ram=5
       ³  ³  ÃÄ@MUL1616  0/21  Ram=5
       ³  ³  ÀÄ@MUL88  0/37  Ram=2
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ÀÄ*
@@ -106,14 +104,14 @@
       ³  ÃÄ@MUL88  0/37  Ram=2
       ³  ÃÄ@MUL1616  0/21  Ram=5
       ³  ÃÄ@MUL88  0/37  Ram=2
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ³  ÀÄ*
       ³  ÃÄ@delay_ms1  0/21  Ram=1
-      ³  ÀÄ@PSTRINGC7_647  0/86  Ram=4
+      ³  ÀÄ@PSTRINGC7_649  0/86  Ram=4
       ³     ÀÄ*
       ÃÄteclado  0/72  Ram=0
       ³  ÀÄ*
@@ -121,22 +119,27 @@
       ³  ÀÄ*
       ÃÄvalidar_clave  0/83  Ram=12
       ³  ÀÄ*
-      ÃÄpasos_derecha  0/79  Ram=1
-      ³  ÃÄ@delay_ms1  0/21  Ram=1
-      ³  ÃÄ@delay_ms1  0/21  Ram=1
-      ³  ÃÄ@delay_ms1  0/21  Ram=1
-      ³  ÀÄ@delay_ms1  0/21  Ram=1
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÀÄ*
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÀÄ*
-      ÃÄ@delay_ms1  0/21  Ram=1
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄimprimir_direccion  0/33  Ram=0
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÃÄ@PSTRINGC7_649  0/86  Ram=4
+      ³  ³  ÀÄ*
+      ³  ÀÄ@PSTRINGC7_649  0/86  Ram=4
+      ³     ÀÄ*
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
+      ³  ÀÄ*
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÀÄ*
       ÃÄlcd_gotoxy  0/18  Ram=4
       ³  ÀÄ*
-      ÃÄ@PSTRINGC7_647  0/86  Ram=4
+      ÃÄ@PSTRINGC7_649  0/86  Ram=4
       ³  ÀÄ*
       ÀÄ@delay_ms1  0/21  Ram=1

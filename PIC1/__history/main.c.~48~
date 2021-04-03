@@ -15,7 +15,6 @@ char K;                                      //Variables Globales
 int8 MIL,CEN,DEC,UNI,VAL;
 int16 contra=2021;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
-int direction;
 
 void teclado()
 {
@@ -177,24 +176,6 @@ void cambio_clave(void)
    }
 }
 
-void imprimir_direccion(void)
-{
-   if(direction == 1);
-   {
-      LCD_PUTC(" Avanza ");
-   }
-   
-   if(direction == 2);
-   {
-      LCD_PUTC(" Retrocede ");
-   }
-   
-   if(direction == 0);
-   {
-      LCD_PUTC(" Stop ");   
-   }
-}
-
 void main()
 {
    int16 m,c,d,u;                            //Variables Locales
@@ -231,6 +212,8 @@ void main()
    
    while(TRUE)
    {
+      pasos_off();
+      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -259,18 +242,14 @@ void main()
             
             while(flag == 1)
             {  
-               LCD_PUTC(" Encendido y esperando ");
                order = teclado;
                if(order != 0)
                {
                   putc(order);
-                  direction = getc();
-                  imprimir_direccion();
                }
                else
                {
-                  LCD_PUTC(" SISTEMA BLOQUEADO ");
-                  flag = 0;
+                  LCD_PUTC(" CLAVE INVALIDA ");
                }
             }  
          }

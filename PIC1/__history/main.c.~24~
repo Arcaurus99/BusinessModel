@@ -6,16 +6,15 @@
 #define use_portb_kbd True                   //y el teclado en el puerto B
 #include <lcd.c>                             //Librerías del LCD y Teclado
 #include <kbd.c> 
-#byte PORTD= 7                               //Definiciones
+#byte PORTC= 7                               //Definiciones
 #byte PORTB= 6
-#define LED1 PORTD,4
-#define LED2 PORTD,7
+#define LED1 PORTC,1
+#define LED2 PORTC,4
 
 char K;                                      //Variables Globales
 int8 MIL,CEN,DEC,UNI,VAL;
 int16 contra=2021;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
-int direction;
 
 void teclado()
 {
@@ -177,33 +176,14 @@ void cambio_clave(void)
    }
 }
 
-void imprimir_direccion(void)
-{
-   if(direction == 1);
-   {
-      LCD_PUTC(" Avanza ");
-   }
-   
-   if(direction == 2);
-   {
-      LCD_PUTC(" Retrocede ");
-   }
-   
-   if(direction == 0);
-   {
-      LCD_PUTC(" Stop ");   
-   }
-}
-
 void main()
 {
    int16 m,c,d,u;                            //Variables Locales
    INT8 m1,c1,d1,u1;
-   int flag = 0;
-   int order;
+   int flag;
    
    SET_TRIS_C(0B00000000);                   //Puerto C como Salida
-   PORTD=0;                                  //Limpia Puerto C
+   PORTC=0;                                  //Limpia Puerto C
    lcd_init();                               //Inicializa el LCD
    kbd_init();                               //Inicializa el Teclado
    
@@ -211,6 +191,8 @@ void main()
    port_b_pullups(0xFF);                     //PIC 16F887
    
    sinal=READ_EEPROM(4);       //Averiguo si tengo una contraseña guardada o no
+   
+   pasos_off();
    
    if(sinal!=12)
       contra=9999;
@@ -231,6 +213,8 @@ void main()
    
    while(TRUE)
    {
+      pasos_off();
+      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -251,28 +235,12 @@ void main()
          if(validar_clave())                 //Validación clave
          {
             flag = 1;
-                        
+            putc(flag);
+            
             LCD_PUTC("\f"); //Se borra LCD
             LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
             LCD_PUTC(" CLAVE CORRECTA ");
             BIT_SET(LED1);
-            
-            while(flag == 1)
-            {  
-               LCD_PUTC(" Encendido y esperando ");
-               order = teclado;
-               if(order != 0)
-               {
-                  putc(order);
-                  direction = getc();
-                  imprimir_direccion();
-               }
-               else
-               {
-                  LCD_PUTC(" SISTEMA BLOQUEADO ");
-                  flag = 0;
-               }
-            }  
          }
          else
          {

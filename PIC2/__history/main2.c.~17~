@@ -126,12 +126,12 @@ void main()
       {
          if(lastdir == 1)
          {
-            pasos_izquierda(80);
+            pasos_izquierda();
          }
          
          if(lastdir == 2)
          {
-            pasos_derecha(80);
+            pasos_derecha();
          }
       }
    }

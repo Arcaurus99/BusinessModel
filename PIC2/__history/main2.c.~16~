@@ -112,26 +112,26 @@ void main()
    
    if(order == 3)
    {
-      if(direction == 1)
+      if(direction == 1);
       {
          pasos_off();
       }
       
-      if(direction == 2)
+      if(direction == 2);
       {
          pasos_off();
       }
       
-      if(direction == 0)
+      if(direction == 0);
       {
-         if(lastdir == 1)
+         if(lastdir == 1);
          {
-            pasos_izquierda(80);
+            pasos_izquierda();
          }
          
-         if(lastdir == 2)
+         if(lastdir == 2);
          {
-            pasos_derecha(80);
+            pasos_derecha();
          }
       }
    }

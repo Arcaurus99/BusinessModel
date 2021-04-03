@@ -15,7 +15,6 @@ char K;                                      //Variables Globales
 int8 MIL,CEN,DEC,UNI,VAL;
 int16 contra=2021;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
-int direction;
 
 void teclado()
 {
@@ -177,30 +176,13 @@ void cambio_clave(void)
    }
 }
 
-void imprimir_direccion(void)
-{
-   if(direction == 1);
-   {
-      LCD_PUTC(" Avanza ");
-   }
-   
-   if(direction == 2);
-   {
-      LCD_PUTC(" Retrocede ");
-   }
-   
-   if(direction == 0);
-   {
-      LCD_PUTC(" Stop ");   
-   }
-}
-
 void main()
 {
    int16 m,c,d,u;                            //Variables Locales
    INT8 m1,c1,d1,u1;
    int flag = 0;
    int order;
+   int direction;
    
    SET_TRIS_C(0B00000000);                   //Puerto C como Salida
    PORTD=0;                                  //Limpia Puerto C
@@ -264,8 +246,7 @@ void main()
                if(order != 0)
                {
                   putc(order);
-                  direction = getc();
-                  imprimir_direccion();
+                  getc(direction);
                }
                else
                {

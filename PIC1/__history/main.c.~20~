@@ -1,22 +1,19 @@
 #include <16f887.h>
-#use delay(clock=4000000,crystal)            //Crystal 4MHz
 #fuses xt,noprotect,nowdt,nobrownout,noput,nolvp
+#use delay(clock=4000000,crystal)            //Crystal 4MHz
+#use rs232(baud=57600,xmit=pin_c6,rcv=pin_c7,bits=8)
 #define use_portb_lcd True                   //Definiciones para colocar el LCD
 #define use_portb_kbd True                   //y el teclado en el puerto B
-#define bobina_1 PIN_D4                      //Puertos para los motores
-#define bobina_2 PIN_D5
-#define bobina_3 PIN_D6
-#define bobina_4 PIN_D7
 #include <lcd.c>                             //Librerías del LCD y Teclado
 #include <kbd.c> 
 #byte PORTC= 7                               //Definiciones
 #byte PORTB= 6
-#define LED1 PORTC,4
-#define LED2 PORTC,7
+#define LED1 PORTC,1
+#define LED2 PORTC,4
 
 char K;                                      //Variables Globales
 int8 MIL,CEN,DEC,UNI,VAL;
-int16 contra=9999;               //Variable entera para almacenar la contraseña
+int16 contra=2021;               //Variable entera para almacenar la contraseña
 int8 sinal;                      //Variable para saber si tengo contraseña
 
 void teclado()
@@ -194,6 +191,8 @@ void main()
    
    sinal=READ_EEPROM(4);       //Averiguo si tengo una contraseña guardada o no
    
+   pasos_off();
+   
    if(sinal!=12)
       contra=9999;
    else
@@ -213,6 +212,8 @@ void main()
    
    while(TRUE)
    {
+      pasos_off();
+      
       LCD_PUTC("\f");
       LCD_GOTOXY(1,1);
       LCD_PUTC(" DIGITE CLAVE ");
@@ -232,12 +233,12 @@ void main()
          }
          if(validar_clave())                 //Validación clave
          {
+            
+            
             LCD_PUTC("\f"); //Se borra LCD
-               LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
+            LCD_GOTOXY(1,1);//Se ubica en la posición 1,1
             LCD_PUTC(" CLAVE CORRECTA ");
             BIT_SET(LED1);
-            DELAY_MS(2000);
-            BIT_CLEAR(LED1);
          }
          else
          {
