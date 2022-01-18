@@ -1,0 +1,159 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+007     PORTC
+008     lcd
+008     lcdlat
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     opc
+021-024 tem
+025     valor
+026     @TRIS_C
+027     @PSTRINGCN7_649.P1
+027     @PRINTF_D_649.P2
+027     lcd_init.i
+027-028 @ITOF.P1
+027-02A @DIVFF.P2
+027-02A @PRINTF_L32D_649FPFPF.P3
+027     @PSTRINGC7_649.@SCRATCH1
+028-02B lcd_init.LCD_INIT_STRING
+028     @PRINTF_D_649.P1
+028     @PSTRINGCN7_649.@SCRATCH1
+028     @PSTRINGC7_649.@SCRATCH2
+029     @PSTRINGCN7_649.@SCRATCH2
+029     @PRINTF_D_649.@SCRATCH1
+029     @PSTRINGC7_649.@SCRATCH3
+02A     @PSTRINGCN7_649.@SCRATCH3
+02A     @PRINTF_D_649.@SCRATCH2
+02A     @PSTRINGC7_649.@SCRATCH4
+02B     @PRINTF_L32D_649FPFPF.P1
+02B-02E @DIVFF.P2
+02B     @PSTRINGCN7_649.@SCRATCH4
+02B     @PRINTF_D_649.@SCRATCH3
+02C     lcd_init.@SCRATCH1
+02C     @PRINTF_D_649.@SCRATCH4
+02C     @PRINTF_L32D_649FPFPF.@SCRATCH1
+02D     @DIV88.P1
+02D     @PRINTF_L32D_649FPFPF.@SCRATCH2
+02E     @DIV88.P1
+02E     @PRINTF_L32D_649FPFPF.@SCRATCH3
+02F     @DIV88.@SCRATCH1
+02F     @DIVFF.@SCRATCH1
+02F     @PRINTF_L32D_649FPFPF.@SCRATCH4
+030     @DIVFF.@SCRATCH2
+030     @PRINTF_L32D_649FPFPF.@SCRATCH5
+031     @DIVFF.@SCRATCH3
+031     @PRINTF_L32D_649FPFPF.@SCRATCH6
+032     @DIVFF.@SCRATCH4
+032     @PRINTF_L32D_649FPFPF.@SCRATCH7
+033     @DIVFF.@SCRATCH5
+033     @PRINTF_L32D_649FPFPF.@SCRATCH8
+034-037 @MULFF.P1
+034     lcd_putc.c
+034-037 @DIV3232.P1
+034-037 @FTOSD.P2
+034     @DIVFF.@SCRATCH6
+035     @delay_ms1.P1
+035     lcd_gotoxy.x
+036     lcd_gotoxy.y
+037     lcd_gotoxy.address
+038-03B @MULFF.P1
+038-03B @DIV3232.P2
+038     lcd_gotoxy.@SCRATCH1
+038     @FTOSD.@SCRATCH1
+039     lcd_send_byte.address
+03A     lcd_send_byte.n
+03B     lcd_read_byte.low
+03B     lcd_send_byte.@SCRATCH1
+03C     lcd_send_nibble.n
+03C     lcd_read_byte.high
+03C     @MULFF.@SCRATCH1
+03C     @DIV3232.@SCRATCH1
+03D     lcd_read_byte.@SCRATCH1
+03D     @MULFF.@SCRATCH2
+03D     @DIV3232.@SCRATCH2
+03E     @MULFF.@SCRATCH3
+03E     @DIV3232.@SCRATCH3
+03F     @MULFF.@SCRATCH4
+03F     @DIV3232.@SCRATCH4
+040     @MULFF.@SCRATCH5
+040     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const669.call
+00000A  @const678.call
+000011  @const679.call
+000012  @const686.call
+000019  @const687.call
+00001E  @const699.call
+00001F  @const700.call
+000026  @const701.call
+00002B  @const702.call
+00002C  @delay_ms1
+000041  lcd_send_nibble
+00004D  lcd_read_nibble
+000053  lcd_send_byte
+000059  lcd_read_byte
+000093  lcd_init
+0000D1  lcd_gotoxy
+0000E3  lcd_putc
+00010F  @PSTRINGCN7_649
+000166  @DIV88
+00017B  @PRINTF_D_649
+0001D2  @PSTRINGC7_649
+000228  @ITOF
+000245  @DIVFF
+000311  @DIV3232
+000360  @PRINTF_L32D_649FPFPF
+000374  @MULFF
+0003FA  @FTOSD
+0004B3  @cinit1
+0004B3  MAIN
+0004D4  @cinit2
+
+Project Directory:
+    D:\arc\UNIVERSIDAD\Unicauca\6to Semestre\Circuitos Digitales II\FinalBusinessModel\Code\UC2\
+
+Project Files:
+    Code_2.c                                                [01-oct.-21 19:13  CRC=2F88D155]
+    C:\Program Files (x86)\PICC\Devices\16f887.h            [12-nov.-13 14:35  CRC=6CB1A611]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [19-sep.-13 15:38  CRC=D1A6378A]
+
+Source signature=3F86E67A
+
+Units:
+    Code_2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Code_2.xsym
+    Errors:      Code_2.err
+    Ext Symbols: Code_2.esym
+    INHX8:       Code_2.hex
+    Symbols:     Code_2.sym
+    List:        Code_2.lst
+    Debug/COFF:  Code_2.cof
+    Project:     Code_2.ccspjt
+    Call Tree:   Code_2.tre
+    Statistics:  Code_2.STA
