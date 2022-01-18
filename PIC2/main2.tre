@@ -1,0 +1,21 @@
+ÀÄmain2
+   ÃÄMAIN  0/81  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄpasos_off  0/20  Ram=0
+   ³  ÃÄpasos_izquierda  0/79  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÀÄ@delay_ms1  0/21  Ram=1
+   ³  ÃÄpasos_derecha  0/79  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÀÄ@delay_ms1  0/21  Ram=1
+   ³  ÃÄpasos_off  0/20  Ram=0
+   ³  ÃÄpasos_off  0/20  Ram=0
+   ³  ÃÄpasos_izquierda  0/79  Ram=1
+   ³  ³  ÀÄ*
+   ³  ÀÄpasos_derecha  0/79  Ram=1
+   ³     ÀÄ*
+   ÀÄRDA_isr  0/8  Ram=0
